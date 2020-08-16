@@ -49,6 +49,22 @@
             color: rgb(51, 190, 255);
         }
 
+        .container {
+  width: 150px;
+  clear: both;
+  display: table; 
+}
+
+button {
+    border-radius: 12px;
+    border: 2px solid #36aff5;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #68c3f7; 
+  color: white;
+}
         
     </style>
 </head>
@@ -62,13 +78,13 @@
         </div>
 
         <div>
-            <label for="uname"><b>Usuario</b></label>
-            <input type="text" placeholder="Usuario" name="uname" required>
-            <br>
-            <label for="psw"><b>Contraseña</b></label>
-            <input type="password" placeholder="Contraseña" name="psw" required>
+            <label for="uname"><b>Usuario: </b></label>
+            <input type="text" placeholder="Usuario" name="uname" class="container" required>
+            <label for="psw"><b>Contraseña: </b></label>
+            <input type="password" placeholder="Contraseña" name="psw" class="container" required>
             <br>
             <button onclick="location.href" id="myButton">Login</button>
+            <br>
             <label>
       <input type="checkbox" checked="checked" name="remember"> Recuerdame
     </label>
