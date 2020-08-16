@@ -77,16 +77,18 @@
         </div>
 
         <div>
-            <label for="uname"><b>Usuario: </b></label>
-            <input type="text" placeholder="Usuario" name="uname" class="container" required>
-            <label for="psw"><b>Contraseña: </b></label>
-            <input type="password" placeholder="Contraseña" name="psw" class="container" required>
-            <br>
-            <button onclick="location.href" id="myButton">Login</button>
-            <br>
-            <label>
+            <form action="page.html" method="GET">
+                <label for="uname"><b>Usuario: </b></label>
+                <input class="container" type="text" placeholder="Usuario" name="uname" required>
+                <label for="psw"><b>Contraseña: </b></label>
+                <input class="container" type="password" placeholder="Contraseña" name="psw" required>
+                <br>
+                <button>Login</button>
+                <br>
+                <label>
       <input type="checkbox" checked="checked" name="remember"> Recuerdame
     </label>
+            </form>
         </div>
         <div>
             <span>Olvidaste tu <a href="#">contraseña?</a></span>
