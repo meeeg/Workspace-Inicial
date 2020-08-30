@@ -38,6 +38,7 @@
             padding: 15px;
             margin: auto;
             background-color: white;
+            border-radius: 12px;
         }
         
         .avatar {
@@ -77,13 +78,13 @@
         </div>
 
         <div>
-            <form action="page.html" method="GET">
                 <label for="uname"><b>Usuario: </b></label>
-                <input class="container" type="text" placeholder="Usuario" name="uname" required>
+                <input class="container" type="text" id="user" placeholder="Usuario" required>
                 <label for="psw"><b>Contraseña: </b></label>
-                <input class="container" type="password" placeholder="Contraseña" name="psw" required>
+                <input class="container" type="password" id="pass" placeholder="Contraseña" required>
                 <br>
-                <button>Login</button>
+                <!-- guarda los datos de user y pass ejecutando la función login-->
+                <button onclick="login(user.value, pass.value);">Login</button> 
                 <br>
                 <label>
       <input type="checkbox" checked="checked" name="remember"> Recuerdame
@@ -99,5 +100,4 @@
     <script src="js/init.js"></script>
     <script src="js/login.js"></script>
 </body>
-
 </html>
