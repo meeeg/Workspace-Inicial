@@ -183,3 +183,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+var button = document.getElementById("cat-list-container");
+
+button.addEventListener("click", function(){
+    document.location.href = 'product-info.html';
+});
