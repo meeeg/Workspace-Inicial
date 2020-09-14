@@ -186,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 var button = document.getElementById("cat-list-container");
 
-button.addEventListener("click", function(){
+//función que redirecciona cuando toco cualquier producto de la lista a product-info
+button.addEventListener("click", function(){ 
     document.location.href = 'product-info.html';
 });

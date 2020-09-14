@@ -48,36 +48,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
-// productos relacionados
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") {
-            products = resultObj.data;
-               let html='';
 
-                product.relatedProducts.forEach(function(productIndex) {
-                let productIterator = products[productIndex];
-                    html += `
-                    <div class="card" style="width: 18rem;">
-                    <img src="${productIterator.imgSrc}" class="card-img-top">
-                    <div class="card-body">
-                         <h5 class="card-title">${productIterator.name}</h5>
-                         <p class="card-text">${productIterator.description}</p>
-                         <a href="" class="btn btn-link"> ver </a>
-                         </div>
-                    </div>
-                    `
-                });
-                    document.getElementById("rel-items-cont").innerHTML = html;
-                
-    }
-})
-          
-});
-
-
-
-//Comentarios
+//función que carga los comentarios
 document.addEventListener("DOMContentLoaded", function(e){
         getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
             if (resultObj.status === "ok") {
@@ -112,4 +84,42 @@ document.addEventListener("DOMContentLoaded", function(e){
         
     });
 });
+
+// productos relacionados
+/* document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            product = resultObj.data;
+               let html='';
+
+
+               for(i=0; 0<product.length; i++){
+               for(x=0; 0<product.relatedProducts; x++){
+                   showRelatedProducts (product[relatedProducts[i]]);
+
+               }
+              
+               }
+
+               function showRelatedProducts(){
+                    html += `
+                    <div class="card" style="width: 18rem;">
+                    <img src= `+ product.imgSrc +` class="card-img-top">
+                    <div class="card-body">
+                         <h5 class="card-title">` + product.name + `</h5>
+                         <p class="card-text">` +product.description + `</p>
+                         <a href="" class="btn btn-link"> ver </a>
+                         </div>
+                    </div>
+                    `
+               
+               }
+               document.getElementById("rel-items-cont").innerHTML = html;
+               }          
+
+        });
+    }); */
+
+
+
 
