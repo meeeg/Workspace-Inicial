@@ -65,6 +65,15 @@ function showCategoriesList(){
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
 }
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(CATEGORIES_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            currentCategoriesArray = resultObj.data;
+            //Muestro las categorías ordenadas
+            showCategoriesList(currentCategoriesArray);
+        }
+    });
+});
 
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;

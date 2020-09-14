@@ -10,16 +10,30 @@ var category = {};
         
             for(let i = 0; i < array.length; i++){
                 let imageSrc = array[i];
-        
-                htmlContentToAppend += `
+                if(i==0){
+                    htmlContentToAppend +=`
+    <div class="carousel-item active">
+      <img src="` + imageSrc +`"class="d-block w-100" alt="...">
+    </div>
+`
+                }else{
+                    htmlContentToAppend +=`
+                    <div class="carousel-item ">
+                      <img src="` + imageSrc +`"class="d-block w-100" alt="...">
+                    </div>
+                `
+                }
+
+            
+                 /*`
                 <div class="col-lg-3 col-md-4 col-6">
                     <div class="d-block mb-4 h-100">
                         <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
                     </div>
                 </div>
-                `
+                `*/
         
-                document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+                document.getElementById("carrousel-car").innerHTML = htmlContentToAppend;
             }
         }
 
@@ -44,6 +58,41 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(category.images);
+
+            getJSONData(PRODUCTS_URL).then(function(resultObj) {
+                if (resultObj.status === "ok") {
+                    product = resultObj.data;
+                       let html='';
+        
+        
+                       for(i=0; i<category.relatedProducts.length; i++){
+                           showRelatedProducts(product[category.relatedProducts[i]]);
+                       }
+                      
+                       
+        
+                       function showRelatedProducts(productInfo){
+                            html += `
+                            <div class="row">
+  <div class="column">
+                            <div class="card" style="width: 18rem;" >
+                            <img src= `+ productInfo.imgSrc +` class="card-img-top">
+                            <div class="card-body">
+                                 <h5 class="card-title">` + productInfo.name + `</h5>
+                                 <p class="card-text">` +productInfo.description + `</p>
+                                 <a href="" class="btn btn-link"> ver </a>
+                                 </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            `
+                       
+                       }
+                       document.getElementById("rel-items-cont").innerHTML = html;
+                       }          
+        
+                });
         }
     });
 });
@@ -84,42 +133,4 @@ document.addEventListener("DOMContentLoaded", function(e){
         
     });
 });
-
-// productos relacionados
-/* document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTS_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") {
-            product = resultObj.data;
-               let html='';
-
-
-               for(i=0; 0<product.length; i++){
-               for(x=0; 0<product.relatedProducts; x++){
-                   showRelatedProducts (product[relatedProducts[i]]);
-
-               }
-              
-               }
-
-               function showRelatedProducts(){
-                    html += `
-                    <div class="card" style="width: 18rem;">
-                    <img src= `+ product.imgSrc +` class="card-img-top">
-                    <div class="card-body">
-                         <h5 class="card-title">` + product.name + `</h5>
-                         <p class="card-text">` +product.description + `</p>
-                         <a href="" class="btn btn-link"> ver </a>
-                         </div>
-                    </div>
-                    `
-               
-               }
-               document.getElementById("rel-items-cont").innerHTML = html;
-               }          
-
-        });
-    }); */
-
-
-
 
