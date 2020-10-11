@@ -12,7 +12,7 @@ function showCartList(array) {
                             <td><img height="50" src="` + prodct.src +`" /> </td>
                             <td>` + prodct.name + `</td>
                             <td id="productCostText">`+ prodct.unitCost + ' ' + prodct.currency +`</td>
-                            <td><input id="pepe`+ i +`" type="number" onchange="productCosttoHTML()" value=`+ prodct.count +`></input></td>
+                            <td><input id="pepe`+ i +`" type="number" onchange="productCosttoHTML()" min="0" value=`+ prodct.count +`></input></td>
                             <td class="text-right"><span class="totalCostOfProduct"></span> ` + ' ' + prodct.currency + ` </td>
                             <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                             </tr>
