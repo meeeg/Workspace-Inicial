@@ -40,7 +40,6 @@ function showCartList(array) {
 
 document.querySelector(".totalCostOfProduct").innerHTML = totalCost; 
 document.querySelector(".totalTotalCostOfProduct").innerHTML = totalCost;
-document.querySelector(.)
 } 
 
 
