@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                        function showRelatedProducts(productInfo){
                             html += `
                             <div class="row">
-  <div class="column">
+                            <div class="column">
                             <div class="card" style="width: 18rem;" >
                             <img src= `+ productInfo.imgSrc +` class="card-img-top">
                             <div class="card-body">

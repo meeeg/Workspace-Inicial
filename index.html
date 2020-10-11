@@ -90,17 +90,22 @@
                 <!-- guarda los datos de user y pass ejecutando la función login-->
                 <button onclick="login(user.value, pass.value);">Login</button> 
                 <br>
-               <div class="g-signin2"></div>
+               <div class="g-signin2" data-onsuccess="googleOauth">
+                   <div id="content"></div>
+               </div>
                 <label>
       <input type="checkbox" checked="checked" name="remember"> Recuerdame
     </label>
             </form>
         </div>
+        <button onclick="signOut();"> sign out </button>
         <div>
             <span>Olvidaste tu <a href="#">contraseña?</a></span>
         </div>
         <img src="img/1200px-Logo-ceibal.svg.png" class="avatar">
     </div>
+
+
 
     <script src="js/init.js"></script>
     <script src="js/login.js"></script>

@@ -8,6 +8,21 @@ function login(user, pass){  //función que guarda los datos puestos en usuario 
     }
 } 
 
+function googleOauth(googleUser){
+    var profile = googleUser.getBasicProfile()
+    var userData =  document.querySelector('#content')
+    userData.innerText = googleUser.getBasicProfile().getName();
+    window.location.replace ="page.html" 
+}
+
+function signOut (){
+    gapi.auth2.getAuthInstance().signOut().then(function (){
+        alert('user signed out')
+    });
+}
+
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
