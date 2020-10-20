@@ -12,21 +12,22 @@ function showCartList(array) {
                             <td><img height="50" src="` + prodct.src +`" /> </td>
                             <td>` + prodct.name + `</td>
                             <td id="productCostText">`+ prodct.unitCost + ' ' + prodct.currency +`</td>
-                            <td><input id="pepe`+ i +`" type="number" onchange="productCosttoHTML()" min="0" value=`+ prodct.count +`></input></td>
-                            <td class="text-right"><span class="totalCostOfProduct"></span> ` + ' ' + prodct.currency + ` </td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                            <td><input id="pepe`+ i +`" type="number" onchange="subproductCosttoHTML()" min="0" value=`+ prodct.count +`></input></td>
+                            <td class="text-right"><span class="subcostOfProduct"></span> ` + ' ' + prodct.currency + ` </td>
+                            <td class="text-right"><button id="delete-button" class="btn btn-sm btn-danger" onclick="deleteProduct();"><i class="fa fa-trash"></i> </button> </td>
                             </tr>
                             
     `
 
         document.getElementById("cart-list-container").innerHTML = htmlContentToAppend;
         hideSpinner();
-        productCosttoHTML();
+        subproductCosttoHTML();
+        totalOfCosts();
     }
 }
 
 
- function productCosttoHTML() {
+ function subproductCosttoHTML() {
     var unitCostProduct = 0;
     var numberOfSelectedProducts = 0; 
     
@@ -35,12 +36,41 @@ function showCartList(array) {
     numberOfSelectedProducts = document.getElementById("pepe" + i).value;
     }
 
-    totalCost = unitCostProduct * numberOfSelectedProducts ;
+    subcost = unitCostProduct * numberOfSelectedProducts ;
 
 
-document.querySelector(".totalCostOfProduct").innerHTML = totalCost; 
-document.querySelector(".totalTotalCostOfProduct").innerHTML = totalCost;
+document.querySelector(".subcostOfProduct").innerHTML = subcost; 
+
+
+var e = document.getElementById("shipping");
+var value = e.options[e.selectedIndex].value;
+
+shippingprice = value * subcost ;
+document.querySelector("#showShipping").innerHTML = shippingprice;
+totalOfCosts();
 } 
+
+function totalOfCosts(){
+    totalCost = shippingprice + subcost;
+    document.querySelector("#totalCost").innerHTML = totalCost
+}
+
+
+function deleteProduct(index) {
+    cartArray.splice(index, 1);
+}
+
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+      alert("Name must be filled out");
+      return false;
+    }
+  }
+
+
+
+
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -56,3 +86,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 });
 
+$("#prospects_form").submit(function(e) {
+    e.preventDefault();
+});
