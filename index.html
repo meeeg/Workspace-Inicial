@@ -20,9 +20,7 @@
         html,
         body {
             height: 100%;
-            background-image: linear-gradient(106deg, rgba(247, 203, 203, 1) 0%, rgba(245, 71, 82, 1) 0%, rgba(255, 255, 255, 0) 57%), url("https://signin-kw.com/wp-content/uploads/2019/06/ecommerce.png");
-            background-position: right bottom;
-            background-repeat: no-repeat;
+            background-image: linear-gradient(106deg, rgba(247, 203, 203, 1) 0%, rgba(245, 71, 82, 1) 0%, rgba(255, 255, 255, 0) 57%);
         }
         
         body {
@@ -70,9 +68,14 @@
             color: white;
         }
 
+        #lootie-player{
+            background-position: right bottom;
+            background-repeat: no-repeat;
+        }
+
+
     </style>
 </head>
-
 <body class="text-center">
     <!-- login -->
     <br>
@@ -90,22 +93,24 @@
                 <!-- guarda los datos de user y pass ejecutando la función login-->
                 <button onclick="login(user.value, pass.value);">Login</button> 
                 <br>
+                <!--
                <div class="g-signin2" data-onsuccess="googleOauth">
                    <div id="content"></div>
                </div>
-                <label>
+                <label>-->
       <input type="checkbox" checked="checked" name="remember"> Recuerdame
     </label>
             </form>
         </div>
-        <button onclick="signOut();"> sign out </button>
-        <div>
+        <!-- <button onclick="signOut();"> sign out </button>-->
+        <div> 
             <span>Olvidaste tu <a href="#">contraseña?</a></span>
         </div>
         <img src="img/1200px-Logo-ceibal.svg.png" class="avatar">
     </div>
-
-
+    <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_mpmR6B.json"  background="transparent"  id="lootie-player" speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+   
 
     <script src="js/init.js"></script>
     <script src="js/login.js"></script>

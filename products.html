@@ -52,7 +52,7 @@
     <br>
     <main role="main" class="pb-5">
         <div class="text-center p-4">
-            <h2>Listado</h2>
+            <h2>Listado de productos</h2>
             <div class="container">
                 <div class="row">
                     <div class="col text-right">
@@ -83,21 +83,22 @@
                                 <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
                             </div>
                             <div class="col-3 p-0">
-                                <div class="btn-group" role="group">
-                                    <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-                                    <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button> <br>
+                                    <button class="btn btn-light btn-block" id="clearRangeFilter">Limpiar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="list-group" id="cat-list-container">
+        <br>
+            <div class="row mx-auto">
+                <div class="card-deck"  id="cat-list-container">
                 </div>
             </div>
         </div>
+    </div>
     </main>
     <div></div>
     <div></div>

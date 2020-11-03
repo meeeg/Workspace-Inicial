@@ -1,11 +1,17 @@
+let SUCCESS_MSG = "¡Se ha realizado la compra con éxito! :)";
+let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
+
+
 var cartArray = [];
 showSpinner();
 
 function showCartList(array) {
 
     let htmlContentToAppend = "";
+    if (array.length > 0 ){
     for (let i = 0; i < array.length; i++) {
         let prodct = array[i];
+        
 
         htmlContentToAppend += `
                         <tr>
@@ -14,17 +20,23 @@ function showCartList(array) {
                             <td id="productCostText">`+ prodct.unitCost + ' ' + prodct.currency +`</td>
                             <td><input id="pepe`+ i +`" type="number" onchange="subproductCosttoHTML()" min="0" value=`+ prodct.count +`></input></td>
                             <td class="text-right"><span class="subcostOfProduct"></span> ` + ' ' + prodct.currency + ` </td>
-                            <td class="text-right"><button id="delete-button" class="btn btn-sm btn-danger" onclick="deleteProduct();"><i class="fa fa-trash"></i> </button> </td>
+                            <td class="text-right"><button id="delete-button" class="btn btn-sm btn-danger" onclick="deleteProduct(`+ i +`);"><i class="fa fa-trash"></i> </button> </td>
                             </tr>
                             
     `
+    }
+     } else {
+         htmlContentToAppend+= `<tr><td>El carrito está vacío</td></tr>`;
+     }
+    
+
 
         document.getElementById("cart-list-container").innerHTML = htmlContentToAppend;
         hideSpinner();
         subproductCosttoHTML();
         totalOfCosts();
     }
-}
+
 
 
  function subproductCosttoHTML() {
@@ -58,18 +70,51 @@ function totalOfCosts(){
 
 function deleteProduct(index) {
     cartArray.splice(index, 1);
+    showCartList(cartArray);
 }
 
-function validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == "") {
-      alert("Name must be filled out");
-      return false;
+
+
+document.getElementById('validation').addEventListener("click",function(){
+
+    //obtengo los campos
+    var nameInput = document.getElementById("name");   
+    var creditCard = document.getElementById("creditCard");     
+    var cvcInput = document.getElementById("cvc");
+
+//remuevo los inválidos
+    nameInput.classList.remove('is-invalid');
+    creditCard.classList.remove('is-invalid');
+    cvcInput.classList.remove('is-invalid');
+
+//remuevo los válidos
+    nameInput.classList.remove('is-valid');
+    creditCard.classList.remove('is-valid');
+    cvcInput.classList.remove('is-valid');
+
+   
+//checkeo, si los campos estan vacios es  invalido, si los campos estan 
+//rellenos es válido
+    if (nameInput.value === ""){
+        nameInput.classList.add('is-invalid');
+
+    }else{
+        nameInput.classList.add('is-valid');
+
     }
-  }
 
+    if (creditCard.value === ""){
+        creditCard.classList.add('is-invalid');
+    }else{
+        creditCard.classList.add('is-valid');
+    }
 
-
+    if (cvcInput.value === ""){
+        cvcInput.classList.add('is-invalid');
+    }else{
+        cvcInput.classList.add('is-valid');
+    }
+});
 
 
 
