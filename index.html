@@ -182,10 +182,52 @@ h1{
     color:#f73485;
 }
 
+.color-change-5x {
+	-webkit-animation: color-change-5x 8s linear infinite alternate both;
+	        animation: color-change-5x 8s linear infinite alternate both;
+}
+
+@-webkit-keyframes color-change-5x {
+  0% {
+    background: #eae4e9;
+  }
+  25% {
+    background: #fde2e4;
+  }
+  50% {
+    background: #fad2e1;
+  }
+  75% {
+    background: #bee1e6;
+  }
+  100% {
+    background: #cddafd;
+  }
+}
+@keyframes color-change-5x {
+  0% {
+    background: #eae4e9;
+  }
+  25% {
+    background: #fde2e4;
+  }
+  50% {
+    background: #fad2e1;
+  }
+  75% {
+    background: #bee1e6;
+  }
+  100% {
+    background: #cddafd;
+  }
+}
+
+
+
 
     </style>
 </head>
-<body>
+<body class="color-change-5x">
     <br>
     <br>
     <br>
@@ -204,7 +246,7 @@ h1{
                 <div>
                         <label for="uname"><b>Usuario: </b></label>
                         <input class="container form-control"  type="text" id="user" placeholder="Usuario" required>
-                        <label for="psw"><b>Contraseña: </b></label>
+                        <br><label for="psw"><b>Contraseña: </b></label>
                         <input class="container form-control" type="password" id="pass" placeholder="Contraseña" required>
                         <br>
                         <!-- guarda los datos de user y pass ejecutando la función login-->

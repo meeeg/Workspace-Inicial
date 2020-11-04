@@ -13,7 +13,96 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+<style>
+    html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
 
+h1{
+    color:#f73485;
+}
+
+#cover{
+    background-image: url('img/Untitled-1.jpg')
+}
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.color-change-5x {
+	-webkit-animation: color-change-5x 8s linear infinite alternate both;
+	        animation: color-change-5x 8s linear infinite alternate both;
+}
+
+@-webkit-keyframes color-change-5x {
+  0% {
+    background: #eae4e9;
+  }
+  25% {
+    background: #fde2e4;
+  }
+  50% {
+    background: #fad2e1;
+  }
+  75% {
+    background: #bee1e6;
+  }
+  100% {
+    background: #cddafd;
+  }
+}
+@keyframes color-change-5x {
+  0% {
+    background: #eae4e9;
+  }
+  25% {
+    background: #fde2e4;
+  }
+  50% {
+    background: #fad2e1;
+  }
+  75% {
+    background: #bee1e6;
+  }
+  100% {
+    background: #cddafd;
+  }
+}
+
+
+
+</style>
 </head>
 
 <body>
@@ -43,15 +132,27 @@
         </div>
     </nav>
     <main role="main">
-        <section class="jumbotron text-center">
-            <div class="m-5">
-                <h1></h1>
-            </div>
-        </section>
-        <br>
-        <br>
+<section>
+    <br>
+    <div class="container color-change-5x">
+        <div class="row align-items-center">
+        <div class="col" style="margin-left:5%;">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_57TxAX.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;" loop  autoplay></lottie-player>
+</div>
+        <div class="col align-self-center text-center text-focus-in" style="margin-left: -20%;">
+        <h1><strong>e-MERCADO</strong></h1>
+        <p style="margin-top: -20px;"><small><strong>tu ecommerce favorito</strong></small></p>
+        <small style="font-size: 10px; color: grey;">Esta web es una herramienta generada para fines estrictamente educativos.<br>
+          No realiza compras o ventas reales a terceros. Tampoco administra datos personales o de clientes.<br>
+          Todo lo expresado en este dominio no tiene validez comercial.</small>      
+    </div>
+</section>
+
+      
             <!-- Inicio del listado generado por JSON-->
             <div class="container">
+                <hr>
                 <div class="row">
                             <div class="card-columns"  id="cat-list-container"> <!-- div que modifica el innerHTML de products.js-->
                             </div>
