@@ -26,7 +26,7 @@ function showCartList(array) {
     `
     }
      } else {
-         htmlContentToAppend+= `<tr><td>El carrito está vacío</td></tr>`;
+         htmlContentToAppend+= `<td class="text-center" colspan="5"><h5><strong>El carrito está vacío<strong><h5><td>`;
      }
     
 
@@ -42,7 +42,8 @@ function showCartList(array) {
  function subproductCosttoHTML() {
     var unitCostProduct = 0;
     var numberOfSelectedProducts = 0; 
-    
+    if (cartArray.length > 0){
+
     for (let i = 0; i < cartArray.length; i++){
     unitCostProduct = parseInt(cartArray[i].unitCost);
     numberOfSelectedProducts = document.getElementById("pepe" + i).value;
@@ -60,17 +61,23 @@ var value = e.options[e.selectedIndex].value;
 shippingprice = value * subcost ;
 document.querySelector("#showShipping").innerHTML = shippingprice;
 totalOfCosts();
+    }
 } 
 
 function totalOfCosts(){
+    if (cartArray.length > 0){
     totalCost = shippingprice + subcost;
     document.querySelector("#totalCost").innerHTML = totalCost
+    }
 }
-
 
 function deleteProduct(index) {
     cartArray.splice(index, 1);
     showCartList(cartArray);
+    var shipRow = document.getElementById("ship-row");
+    shipRow.remove();
+    var ctRow = document.getElementById("ct-row");
+    ctRow.remove();
 }
 
 
@@ -134,3 +141,4 @@ document.addEventListener("DOMContentLoaded", function(e) {
 $("#prospects_form").submit(function(e) {
     e.preventDefault();
 });
+

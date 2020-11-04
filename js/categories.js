@@ -45,20 +45,15 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
 
             htmlContentToAppend += `
-            <a href="category-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ category.name +`</h4>
-                            <small class="text-muted">` + category.productCount + ` artículos</small>
-                        </div>
-                        <p class="mb-1">` + category.description + `</p>
-                    </div>
-                </div>
-            </a>
+            <div class="card  slide-in-blurred-bottom">
+            <img class="card-img-top" src="` + category.imgSrc + `" alt="` + category.description + `">
+            <div class="card-body">
+            <h5 class="card-title">`+ category.name +`</h5>
+              <p class="card-text"> ` + category.description + `</p>
+              <p class="card-text"><small class="text-muted">Cantidad de artículos vendidos: ` + category.productCount + `</small></p>
+            </div>
+          </div>
+          
             `
         }
 
@@ -142,4 +137,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+});
+
+var button = document.getElementById("cat-list-container");
+
+button.addEventListener("click", function(){ 
+    document.location.href = 'category-info.html';
 });

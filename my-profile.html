@@ -66,12 +66,12 @@
       <div class="text-center">
         <h4>Tu Perfil:</h4>
         <p><small>Actualiza los datos de tu perfil</small></p>
-
+<div class="slide-in-blurred-bottom">
       <div class="row d-flex justify-content-center">
       <div class="col-md-4 mb-3">
       <label for="nombre-apellido"><strong>Nombre y apellido</strong></label>
       <br>
-      <input type="text" id="nombre" placeholder="Ej. Pepito Pérez"><span id="nombre-span"></span></input>
+      <input type="text" id="nombre" placeholder="Ej. Pepito Pérez"></input>
     </div>
   </div>
 
@@ -79,7 +79,7 @@
     <div class="col-md-4 mb-3">
       <label for="dirección"><strong>Dirección</strong></label>
       <br>
-      <input type="text" id="direccion" placeholder="Ej. Gutierrez Ruiz 1076"><span id="direccion-span"></span></input>
+      <input type="text" id="direccion" placeholder="Ej. Gutierrez Ruiz 1076"></input>
     </div>
   </div>
 
@@ -87,7 +87,7 @@
     <div class="col-md-4 mb-3">
       <label for="exampleInputEmail1"><strong>Email</strong></label>
       <br>
-      <input type="email"  id="email"  placeholder="Ej. Pepitoperez@pepito.com"><span id="email-span"></span></input>
+      <input type="email"  id="email"  placeholder="Ej. Pepitoperez@pepito.com"></input>
     </div>
   </div>
 
@@ -95,7 +95,7 @@
     <div class="col-md-4 mb-3">
       <label for="exampleInputPassword1"><strong>Teléfono de contacto</strong></label>
       <br>
-      <input type="text" id="telefono"  placeholder="Ej. 2019220"><span id="telefono-span"></span></input>
+      <input type="text" id="telefono"  placeholder="Ej. 2019220"></input>
     </div>
   </div>
       <br>
@@ -107,8 +107,9 @@
     </div>
 </div>
 </div>
+</div>
 <script>
-   var name = localStorage.getItem("nombre");
+    var name = localStorage.getItem("nombre");
     document.getElementById('nombre').innerHTML=name;
     nombre.value = name;
     var adress = localStorage.getItem("direccion");
@@ -156,7 +157,6 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/my-profile.js"></script>
   <script src="js/app.js"></script>
 </body>
 

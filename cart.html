@@ -82,7 +82,7 @@
 <div class="container mb-4">
     <div class="row">
         <div class="col-12">
-            <div class="table-responsive">
+            <div class="table-responsive slide-in-blurred-bottom">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -101,24 +101,24 @@
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td>Envío &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span id="showShipping"></span>  UYU</strong></td>
-                      <td class="text-right"></td>
+                      <td></td>
+                      <td id="ship-row"> Envío &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span id="showShipping"></span>  UYU</strong></td>
                   </tr>
-                  <tr>
+                  <tr class="RE">
                       <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td>Costo total  &nbsp;&nbsp;&nbsp;<strong><span id="totalCost"></span> UYU</strong></td>
-                      <td class="text-right"><strong></strong></td>
+                      <td></td>
+                      <td id="ct-row">Costo total  &nbsp;&nbsp;&nbsp;<strong><span id="totalCost"></span> UYU</strong></td>
                   </tr>
-              </tbody>
+
           </table>
       </div>
   </div>         
 
   <div class="container">
-    <div class="row justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center ">
       <p>Selecciona el tipo de envío que deseas</p>
   <select id="shipping"  class="form-control" onchange="subproductCosttoHTML()">
     <option value="0.25">envío de cartón (100 días)</option>

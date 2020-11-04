@@ -17,27 +17,17 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <style>
-        html,
+
         body {
-            height: 100%;
-            background-image: linear-gradient(106deg, rgba(247, 203, 203, 1) 0%, rgba(245, 71, 82, 1) 0%, rgba(255, 255, 255, 0) 57%);
+            background-color: #e8e8e8;
         }
-        
-        body {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-align: center;
-            align-items: center;
-            padding-top: 40px;
-            padding-bottom: 40px;
-            background-color: #f5f5f5;
-        }
+       
         
         .signin {
+            overflow: auto;
             width: 100%;
             max-width: 330px;
             padding: 15px;
-            margin: auto;
             background-color: white;
             border-radius: 12px;
         }
@@ -45,6 +35,7 @@
         .avatar {
             vertical-align: middle;
             height: 70px;
+            object-fit: scale-down;
         }
         
         a {
@@ -59,57 +50,187 @@
         
         button {
             border-radius: 12px;
-            border: 2px solid #36aff5;
+            border: 2px solid grey;
             transition-duration: 0.4s;
         }
         
         button:hover {
-            background-color: #68c3f7;
+            background-color: #3ee6d8;
             color: white;
         }
 
-        #lootie-player{
-            background-position: right bottom;
-            background-repeat: no-repeat;
-        }
+
+        .bounce-in-top {
+	-webkit-animation: bounce-in-top 1.1s both;
+	        animation: bounce-in-top 1.1s both;
+}
+
+@-webkit-keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+            transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+            transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+            transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+            transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@media (max-width: 600px) {
+  .col-8 {
+    display:cente;
+  }
+  #image {
+      display: none;
+  }
+}
+
+h1{
+    color:#f73485;
+}
 
 
     </style>
 </head>
-<body class="text-center">
-    <!-- login -->
+<body>
     <br>
-    <div class="signin">
-        <div>
-            <img src="img/e-mercadopng.png" class="avatar">
-        </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
-        <div>
-                <label for="uname"><b>Usuario: </b></label>
-                <input class="container" type="text" id="user" placeholder="Usuario" required>
-                <label for="psw"><b>Contraseña: </b></label>
-                <input class="container" type="password" id="pass" placeholder="Contraseña" required>
-                <br>
-                <!-- guarda los datos de user y pass ejecutando la función login-->
-                <button onclick="login(user.value, pass.value);">Login</button> 
-                <br>
-                <!--
-               <div class="g-signin2" data-onsuccess="googleOauth">
-                   <div id="content"></div>
-               </div>
-                <label>-->
-      <input type="checkbox" checked="checked" name="remember"> Recuerdame
-    </label>
-            </form>
+    <div class="container text-center">
+        <div class="row">
+         <div class="col-8" style="margin-left: -20%;">
+            <div class="signin bounce-in-top">
+                <div>
+                    <h1><strong>e-MERCADO</strong></h1>
+                    <p style="margin-top: -20px;"><small>tu ecommerce favorito</small></p>
+                </div>
+        <hr>
+                <div>
+                        <label for="uname"><b>Usuario: </b></label>
+                        <input class="container form-control"  type="text" id="user" placeholder="Usuario" required>
+                        <label for="psw"><b>Contraseña: </b></label>
+                        <input class="container form-control" type="password" id="pass" placeholder="Contraseña" required>
+                        <br>
+                        <!-- guarda los datos de user y pass ejecutando la función login-->
+                        <button onclick="login(user.value, pass.value);">Login</button> 
+                        <br>
+                        <!--
+                       <div class="g-signin2" data-onsuccess="googleOauth">
+                           <div id="content"></div>
+                       </div>
+                        <label>-->
+           
+                </div>
+                <!-- <button onclick="signOut();"> sign out </button>-->
+<hr>
+                <img src="img/1200px-Logo-ceibal.svg.png" class="avatar">
+            </div>
+         </div>
+
+         <div class="col-4" id="image" style="margin-top: -27px; margin-left: -20px;">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_gzl797gs.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+         </div>
+         </div>
         </div>
-        <!-- <button onclick="signOut();"> sign out </button>-->
-        <div> 
-            <span>Olvidaste tu <a href="#">contraseña?</a></span>
-        </div>
-        <img src="img/1200px-Logo-ceibal.svg.png" class="avatar">
-    </div>
-    <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_mpmR6B.json"  background="transparent"  id="lootie-player" speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+       </div>
+    
    
 
     <script src="js/init.js"></script>
