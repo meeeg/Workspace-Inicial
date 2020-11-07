@@ -81,7 +81,15 @@
                     </div>
                 </div>
                 <div class="row justify-content-end">
-                    <div class="col-md-6"></div>
+                    <div class="col-md-6 col-sm-12 mb-1 container">
+                        <div id="searchWrapper">
+                        
+                            <div class="font-weight-normal text-right my-2">
+                                <input class="form-control" type="text" name="searchBar" id="searchBar" placeholder="Busca tu producto..." aria-label="Search">
+                
+                        </div>
+                    </div>
+                    </div>
                     <div class="col-md-6 col-sm-12 mb-1 container">
                         <div class="row container p-0 m-0">
                             <div class="col">
@@ -106,6 +114,7 @@
         
         <br>
         <!-- Inicio del listado generado por JSON-->
+    <br>
             <div class="row justify-content-center">
                 <div class="card-deck"  id="cat-list-container"> <!-- div que modifica el innerHTML de products.js-->
                 </div>
@@ -137,6 +146,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
+    <script src="js/searchbar.js"></script>
 </body>
 
 </html>

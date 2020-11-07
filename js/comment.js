@@ -3,6 +3,8 @@
 var titles = []; // array de comentarios
 var titleInput = document.getElementById("title"); //guarda el mensaje
 var messageBox = document.getElementById("display"); // donde va a ubicar el comentario
+var userCommentingParse = localStorage.getItem("usuario")
+var userCommenting = JSON.parse(userCommentingParse);
 
 /*Tengo que arreglar esta función para que checkee si lo puesto en el comentario es texto y no deje comentarios vacios
 function checkText()
@@ -27,5 +29,5 @@ function clearAndShow () //muestra el comentario
 {
 titleInput.value = "";
 messageBox.innerHTML = "";
-messageBox.innerHTML += " " + titles.join("<br/> <hr>") + "<hr><br/>"; //muestra el comentario y le agrega los espaciados y lineas
+messageBox.innerHTML += "<hr><strong>"+ userCommenting + "</strong><br>" + titles + "<hr><br>" ; //muestra el comentario y le agrega los espaciados y lineas
 }

@@ -67,7 +67,7 @@
 <div class="slide-in-blurred-bottom">
       <div class="row d-flex justify-content-center">
       <div class="col-md-4 mb-3">
-      <label for="nombre-apellido"><strong>Nombre y apellido</strong></label>
+      <label for="nombre"><strong>Nombre y apellido</strong></label>
       <br>
       <input type="text" id="nombre" placeholder="Ej. Pepito Pérez"></input>
     </div>
@@ -106,22 +106,6 @@
 </div>
 </div>
 </div>
-<script>
-    var name = localStorage.getItem("nombre");
-    document.getElementById('nombre').innerHTML=name;
-    nombre.value = name;
-    var adress = localStorage.getItem("direccion");
-    document.getElementById('direccion').innerHTML =adress;
-    direccion.value = adress;
-    var mail = localStorage.getItem("email");
-    document.getElementById('email').innerHTML =mail;
-    email.value = mail;
-    var phone = localStorage.getItem("telefono");
-    document.getElementById('telefono').innerHTML =phone;
-    telefono.value = phone;
-  
-  
-</script>
   <!--
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">

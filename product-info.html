@@ -150,11 +150,6 @@
       <dd>
         <div></div>
         <div></div>
-        <dt id="userCommenting">Usuario</dt>
-        <script>
-          var local = localStorage.getItem('usuario');
-          document.getElementById('userCommenting').innerHTML=local;
-        </script>
         <div id="display"></div>
         <!-- espacio de comentarios-->
         <dt>Realiza tu comentario:</dt>
@@ -175,25 +170,21 @@
             
           </div><br>
           Clickeaste el número: <span id="valor"></span><br>
-          <input type="submit" value="Post" onclick="insert(); userPost();" class="btn btn-primary btn-lg"></form>
+          <input type="submit" value="Post" onclick="insert();" class="btn btn-primary btn-lg"></form>
           </div>
         <hr>
       </dd>
-
       
 
       <dt>Productos relacionados</dt>
-      <dd>
-        <div class="row">
-          <div class="card-deck">
-        <div id="rel-items-cont"></div>
-        </div>
-      </div>
-      </dd>
-    </dl>
+      <br>
+ <div class="row justify-content-center">
+                <div class="card-deck"  id="rel-items-cont"> <!-- div que modifica el innerHTML de products.js-->
+                </div>
+            </div>
 
 
-       
+       <br>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
     </div>
   </main>

@@ -1,9 +1,6 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 var category = {};
 
-
+//Función del carrousell
         function showImagesGallery(array){
 
             let htmlContentToAppend = "";
@@ -23,22 +20,13 @@ var category = {};
                     </div>
                 `
                 }
-
-            
-                 /*`
-                <div class="col-lg-3 col-md-4 col-6">
-                    <div class="d-block mb-4 h-100">
-                        <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-                    </div>
-                </div>
-                `*/
         
                 document.getElementById("carrousel-car").innerHTML = htmlContentToAppend;
             }
         }
 
 
-
+//función que recoge todos los datos del JSON y las coloca en los distintos sitios de la página
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
@@ -58,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(category.images);
-
+//función para mostrar los productos relacionados
             getJSONData(PRODUCTS_URL).then(function(resultObj) {
                 if (resultObj.status === "ok") {
                     product = resultObj.data;
@@ -73,19 +61,13 @@ document.addEventListener("DOMContentLoaded", function(e){
         
                        function showRelatedProducts(productInfo){
                             html += `
-                            <div class="row">
-                            <div class="column">
-                            <div class="card" style="width: 18rem;" >
-                            <img src= `+ productInfo.imgSrc +` class="card-img-top">
+                            <div class="card slide-in-blurred-bottom" style="width: 15rem;">
+                            <img class="card-img-top" src="` + productInfo.imgSrc + `" alt="">
                             <div class="card-body">
-                                 <h5 class="card-title">` + productInfo.name + `</h5>
-                                 <p class="card-text">` +productInfo.description + `</p>
-                                 <a href="" class="btn btn-link"> ver </a>
-                                 </div>
+                              <h5 class="card-title">` + productInfo.name + `</h5>
+                              <p class="card-text"> ` + productInfo.description + `</p>
                             </div>
-                            </div>
-                            </div>
-                            </div>
+                          </div>
                             `
                        
                        }
@@ -134,3 +116,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
+
+
+//función que redirecciona cuando toco cualquier producto de la lista a product-info
+var button = document.getElementById("rel-items-cont");
+button.addEventListener("click", function(){ 
+    document.location.href = 'product-info.html';
+});
