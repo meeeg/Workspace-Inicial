@@ -27,6 +27,12 @@
         font-size: 3.5rem;
       }
     }
+
+    #myImg{
+      border-radius: 100px;
+    }
+
+ 
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -59,53 +65,71 @@
     </div>
   </nav>
 <br>
-<br>
+
 <div class="container">
       <div class="text-center">
         <h4>Tu Perfil:</h4>
         <p><small>Actualiza los datos de tu perfil</small></p>
-<div class="slide-in-blurred-bottom">
-      <div class="row d-flex justify-content-center">
-      <div class="col-md-4 mb-3">
-      <label for="nombre"><strong>Nombre y apellido</strong></label>
-      <br>
-      <input type="text" id="nombre" placeholder="Ej. Pepito Pérez"></input>
+        <br>
+        </div>
     </div>
-  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+         <div class="col-lg-3">
+         </div>
+         <div class="col-lg-3">
+       <div>                
+           <br>
+           <label for="nombre"><strong>Nombre y apellido</strong></label>
+                <br>
+                <input type="text" id="nombre" placeholder="Ej. Pepito Pérez"></input>
+            </div>
 
-   <div class="row d-flex justify-content-center">
-    <div class="col-md-4 mb-3">
-      <label for="dirección"><strong>Dirección</strong></label>
-      <br>
-      <input type="text" id="direccion" placeholder="Ej. Gutierrez Ruiz 1076"></input>
-    </div>
-  </div>
-
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-4 mb-3">
-      <label for="exampleInputEmail1"><strong>Email</strong></label>
-      <br>
-      <input type="email"  id="email"  placeholder="Ej. Pepitoperez@pepito.com"></input>
-    </div>
-  </div>
-
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-4 mb-3">
-      <label for="exampleInputPassword1"><strong>Teléfono de contacto</strong></label>
-      <br>
-      <input type="text" id="telefono"  placeholder="Ej. 2019220"></input>
-    </div>
-  </div>
-      <br>
-<div class="row d-flex justify-content-center">
-      <div class="col-md-4 mb-3">
-      <button type="button" class="btn btn-primary"  onclick="register(nombre.value, direccion.value, email.value, telefono.value);">Guardar</button>
-      </div>
-    </div>
-    </div>
+<div>
+    <br>
+                <label for="dirección"><strong>Dirección</strong></label>
+                <br>
+                <input type="text" id="direccion" placeholder="Ej. Gutierrez Ruiz 1076"></input>
+            </div>
+          
+<div>
+    <br>
+                <label for="exampleInputEmail1"><strong>Email</strong></label>
+                <br>
+                <input type="email"  id="email"  placeholder="Ej. Pepitoperez@pepito.com"></input>
+</div>
+          <div>
+              <br>
+                <label for="exampleInputPassword1"><strong>Teléfono de contacto</strong></label>
+                <br>
+                <input type="text" id="telefono"  placeholder="Ej. 2019220"></input>
+        </div>
+        <div justify-content-center>
+            <br>
+                <br>
+                <button type="button" class="btn btn-primary"  onclick="register(nombre.value, direccion.value, email.value, telefono.value);">Guardar</button>
+            </div>
+         </div>
+       
+         <div class="col-lg-5 ">
+             <br>
+            <label><strong>Tu foto de perfil:</strong></label>
+             <div class="row"> 
+<br><br><img id="myImg" src="#" alt="Aquí aparecerá tu imagen" height="200">
+<div>
+  <br><br><input id="img-uploader" type='file' />
+</div>
+         </div>
+         <div class="col-lg">
+         </div>
+        </div>
+       </div>
+    </div>     
 </div>
 </div>
 </div>
+<br>
+<br>
   <!--
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
@@ -139,7 +163,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/my-profile.js"></script>
+  <script src="js/profile-image.js"></script>
 </body>
 
 </html>

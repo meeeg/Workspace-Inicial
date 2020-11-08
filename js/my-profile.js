@@ -1,5 +1,7 @@
+
+//función que obtiene y almacena los datos de los campos y la imagen subida en un objeto
 function register(nombre, direccion, email, telefono){  //función que guarda los datos puestos en usuario y contraseña
-    if (nombre.trim()=== "" || direccion.trim()=== ""  || email.trim()=== ""  || telefono.trim()=== ""){ //checkea que no haya campos en blanco
+    if (nombre.trim()=== "" || direccion.trim()=== ""  || email.trim()=== ""  || telefono.trim()=== "" ){ //checkea que no haya campos en blanco
         alert("Debe rellenar los datos"); //sino envía una alerta
     } else {
         let savedUser = {};
@@ -7,10 +9,12 @@ function register(nombre, direccion, email, telefono){  //función que guarda lo
         savedUser.direccion = direccion.trim;
         savedUser.email = email.trim;
         savedUser.telefono = telefono.trim;
+        savedUser.img = myImg.trim;
         localStorage.setItem("nombre", nombre.trim());  //guarda los datos de en localStorage
         localStorage.setItem("direccion", direccion.trim());
         localStorage.setItem("email", email.trim());
         localStorage.setItem("telefono", telefono.trim());
+        localStorage.setItem("myImg", myImg.src.trim());
         alert("Datos guardados con éxito");
        localStorage.setItem("usuario", JSON.stringify(savedUser));
     }
@@ -18,7 +22,7 @@ function register(nombre, direccion, email, telefono){  //función que guarda lo
 } 
 
 
-
+//funcion que modifica los valores de los input y la imagen para que aparezcan los datos guardados
 if (localStorage.nombre != null){ 
     var name = localStorage.getItem("nombre");
     document.getElementById("nombre").innerHTML = name;
@@ -32,5 +36,10 @@ if (localStorage.nombre != null){
     var phone = localStorage.getItem("telefono");
     document.getElementById("telefono").innerHTML =phone;
     telefono.value = phone;
+    var imgSrc = localStorage.getItem("myImg");
+    document.getElementById("myImg").innerHTML = "imgSrc";
+    myImg.src = imgSrc;
 }
+
+
 
