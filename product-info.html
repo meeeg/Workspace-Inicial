@@ -5,9 +5,10 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="http://example.com/favicon.png">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  <meta name="google-signin-client_id" content="589734920366-p1flragsa4bj1qpnonkqtcucf469o2af.apps.googleusercontent.com"> 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -15,76 +16,45 @@
   <link href="css/styles.css" rel="stylesheet">
   <style>
     .puntuacion {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
+      display: flex;
+      align-items: center;
     }
 
     .puntuacion input {
-    position: absolute;
-    top: -100px;
+      position: absolute;
+      top: -100px;
     }
 
 
     .puntuacion label {
-    float: right;
-    color: #c1b8b8;
-    font-size: 30px; 
+      float: right;
+      color: #c1b8b8;
+      font-size: 30px;
     }
 
     .puntuacion label:hover,
-    .puntuacion label:hover ~ label,
-    .puntuacion input:checked ~ label {
-    color:orange;
+    .puntuacion label:hover~label,
+    .puntuacion input:checked~label {
+      color: orange;
     }
-    span{
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-weight: 400;
-        color: blue;
+
+    #valor {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: 400;
+      color: blue;
     }
-    </style>
+  </style>
 </head>
 
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="page.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <div class="btn-group">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="user" class="user-name">
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="cart.html">Carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#"><button id="logout-btn" onclick="localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';">Log Out</button></a>
-        </div>
-      </div>
-            <script>
-                var local = localStorage.getItem("usuario");
-                document.getElementById('user').innerHTML=local;
-            </script>
-    </div>
-  </nav>
- <!-- <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div> -->
+  <div id="nav-bar"></div>
   <main role="main">
     <div class="container mt-5">
       <div class="text-center p-4">
         <h2>Descripción del producto</h2>
         <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
-        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquier auto 
+        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquier auto
           seleccionado previamente, siempre se visualizará el presente <strong>Chevrolet Onix Joy</strong>.</p>
       </div>
       <h3 id="categoryName"></h3>
@@ -102,7 +72,9 @@
 
         <dt>Precio del artículo</dt>
         <dd>
-          <p id="productCriteria"><p id="productCurrency"></p></p>
+          <p id="productCriteria">
+            <p id="productCurrency"></p>
+          </p>
         </dd>
 
         <dt>Imágenes ilustrativas</dt>
@@ -110,82 +82,91 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-md-6">
-            <div class="row justify-content-center" style="width: 500px;">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-            </ol>
-            <div class="carousel-inner" id="carrousel-car">
-            <!--- acá el carrousel modificado por json-->
+                <div class="row justify-content-center" style="width: 500px;">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner" id="carrousel-car">
+                      <!--- acá el carrousel modificado por json-->
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+                  </div>
+                </div>
+              </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
-          </div>
-          </div>
-          </div>
           </div>
         </dd>
 
 
-      <dt>Comentarios sobre el producto</dt>
-      <dd>
-        <div id="comments"></div>
-        <hr>
-      </dd>
+        <dt>Comentarios sobre el producto</dt>
+        <dd>
+          <div id="comments"></div>
+          <hr>
+        </dd>
 
-      <dt></dt>
-      <dd>
-        <div></div>
-        <div></div>
-        <div id="display"></div>
-        <!-- espacio de comentarios-->
+        <dt></dt>
+        <dd>
+          <div></div>
+          <div></div>
+          <div id="display"></div>
+          <!-- espacio de comentarios-->
         <dt>Realiza tu comentario:</dt>
         <div class="comment">
-          <textarea id="title" name="textarea" type="text "rows="2" cols="4" class="form-control" placeholder="Escribe un comentario"></textarea>
+          <textarea id="title" name="textarea" type="text " rows="2" cols="4" class="form-control"
+            placeholder="Escribe un comentario"></textarea>
           <!-- puntuación-->
           <div class="puntuacion">
-            <input id="radio1" type="radio" name="estrellas" value="5" onclick="document.getElementById('valor').innerHTML='5'">
+            <small>
+            <input id="radio1" type="radio"  class="score" name="estrellas" value="5"
+              onclick="document.getElementById('valor').innerHTML='5'">
             <label for="radio1"><i class='fas fa-star'></i></label>
-            <input id="radio2" type="radio" name="estrellas" value="4" onclick="document.getElementById('valor').innerHTML='4'">
+            <input id="radio2" type="radio" class="score" name="estrellas" value="4"
+              onclick="document.getElementById('valor').innerHTML='4'">
             <label for="radio2"><i class='fas fa-star'></i></label>
-            <input id="radio3" type="radio" name="estrellas" value="3" onclick="document.getElementById('valor').innerHTML='3'">
+            <input id="radio3" type="radio"  class="score"name="estrellas" value="3"
+              onclick="document.getElementById('valor').innerHTML='3'">
             <label for="radio3"><i class='fas fa-star'></i></label>
-            <input id="radio4" type="radio" name="estrellas" value="2" onclick="document.getElementById('valor').innerHTML='2'">
+            <input id="radio4" type="radio" class="score" name="estrellas" value="2"
+              onclick="document.getElementById('valor').innerHTML='2'">
             <label for="radio4"><i class='fas fa-star'></i></label>
-            <input id="radio5" type="radio" name="estrellas" value="1" onclick="document.getElementById('valor').innerHTML='1'">
+            <input id="radio5" class="score" type="radio" name="estrellas" value="1"
+              onclick="document.getElementById('valor').innerHTML='1'">
             <label for="radio5"><i class='fas fa-star'></i></label><br>
-            
+          </small>
+
           </div><br>
           Clickeaste el número: <span id="valor"></span><br>
-          <input type="submit" value="Post" onclick="insert();" class="btn btn-primary btn-lg"></form>
-          </div>
+          <input type="submit" value="Post" onclick="storeComment(); storeScore();" class="btn btn-primary btn-lg"></form>
+        </div>
         <hr>
-      </dd>
-      
-
-      <dt>Productos relacionados</dt>
-      <br>
- <div class="row justify-content-center">
-                <div class="card-deck"  id="rel-items-cont"> <!-- div que modifica el innerHTML de products.js-->
-                </div>
-            </div>
+        </dd>
 
 
-       <br>
-      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+        <dt>Productos relacionados</dt>
+        <br>
+        <div class="row justify-content-center">
+          <div class="card-deck" id="rel-items-cont">
+            <!-- div que modifica el innerHTML de products.js-->
+          </div>
+        </div>
+
+
+        <br>
+        <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
     </div>
   </main>
   <footer class="text-muted">
@@ -211,6 +192,10 @@
   <script src="js/product-info.js"></script>
   <script src="js/comment.js"></script>
   <script src="js/login.js"></script>
+  <script src="js/nav-bar.js"></script>
+    <script src="js/google-login.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </body>
 
 </html>

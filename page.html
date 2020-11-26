@@ -3,191 +3,183 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>eMercado - Todo lo que busques está aquí</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <meta name="google-signin-client_id" content="589734920366-p1flragsa4bj1qpnonkqtcucf469o2af.apps.googleusercontent.com"> 
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+      overflow-x: hidden;
+    }
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-<style>
-    html,body
-{
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
-}
+    h1 {
+      color: #f73485;
+    }
 
-h1{
-    color:#f73485;
-}
+    #cover {
+      background-image: url('img/Untitled-1.jpg')
+    }
 
-#cover{
-    background-image: url('img/Untitled-1.jpg')
-}
+    .text-focus-in {
+      -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+      animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
 
-.text-focus-in {
-	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
-@-webkit-keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-            filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-}
-@keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-            filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-}
+    @-webkit-keyframes text-focus-in {
+      0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+      }
 
-.color-change-5x {
-	-webkit-animation: color-change-5x 8s linear infinite alternate both;
-	        animation: color-change-5x 8s linear infinite alternate both;
-}
+      100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
 
-@-webkit-keyframes color-change-5x {
-  0% {
-    background: #eae4e9;
-  }
-  25% {
-    background: #fde2e4;
-  }
-  50% {
-    background: #fad2e1;
-  }
-  75% {
-    background: #bee1e6;
-  }
-  100% {
-    background: #cddafd;
-  }
-}
-@keyframes color-change-5x {
-  0% {
-    background: #eae4e9;
-  }
-  25% {
-    background: #fde2e4;
-  }
-  50% {
-    background: #fad2e1;
-  }
-  75% {
-    background: #bee1e6;
-  }
-  100% {
-    background: #cddafd;
-  }
-}
+    @keyframes text-focus-in {
+      0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+      }
 
+      100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
 
+    .color-change-5x {
+      -webkit-animation: color-change-5x 8s linear infinite alternate both;
+      animation: color-change-5x 8s linear infinite alternate both;
+    }
 
-</style>
+    @-webkit-keyframes color-change-5x {
+      0% {
+        background: #eae4e9;
+      }
+
+      25% {
+        background: #fde2e4;
+      }
+
+      50% {
+        background: #fad2e1;
+      }
+
+      75% {
+        background: #bee1e6;
+      }
+
+      100% {
+        background: #cddafd;
+      }
+    }
+
+    @keyframes color-change-5x {
+      0% {
+        background: #eae4e9;
+      }
+
+      25% {
+        background: #fde2e4;
+      }
+
+      50% {
+        background: #fad2e1;
+      }
+
+      75% {
+        background: #bee1e6;
+      }
+
+      100% {
+        background: #cddafd;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block text-shadow-drop-center" href="page.html">Inicio</a>
-            <a class="py-2 d-none d-md-inline-block text-shadow-drop-center" href="categories.html">Categorías</a>
-            <a class="py-2 d-none d-md-inline-block text-shadow-drop-center" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block text-shadow-drop-center" href="sell.html">Vender</a>
-            <a class="py-2 d-none d-md-inline-block text-shadow-drop-center" href="cart.html">Mi carrito</a>
-            <div class="btn-group">
-                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="user" class="user-name">
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="cart.html">Carrito</a>
-                  <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#"><button id="logout-btn" onclick="localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';">Log Out</button></a>
-                </div>
-              </div>
-             
-            <script>
-                var local = localStorage.getItem("usuario");
-                document.getElementById('user').innerHTML=local;
-            </script>
-        </div>
-    </nav>
-    <main role="main">
-<section>
-    <br>
-    <div class="container color-change-5x">
+  <div id="nav-bar"></div>
+  <main role="main">
+    <section>
+      <br>
+      <div class="container color-change-5x">
         <div class="row align-items-center">
-        <div class="col" style="margin-left:5%;">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_57TxAX.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;" loop  autoplay></lottie-player>
-</div>
-        <div class="col align-self-center text-center text-focus-in" style="margin-left: -20%;">
-        <h1><strong>e-MERCADO</strong></h1>
-        <p style="margin-top: -20px;"><small><strong>tu ecommerce favorito</strong></small></p>
-        <small style="font-size: 10px; color: grey;">Esta web es una herramienta generada para fines estrictamente educativos.<br>
-          No realiza compras o ventas reales a terceros. Tampoco administra datos personales o de clientes.<br>
-          Todo lo expresado en este dominio no tiene validez comercial.</small>      
+          <div class="col img-fluid">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_57TxAX.json" background="transparent"
+              speed="1" style="width: 500px; height: 500px;" loop autoplay></lottie-player>
+          </div>
+          <div class="col align-self-center text-center text-focus-in">
+            <h1><strong>e-MERCADO</strong></h1>
+            <p style="margin-top: -20px;"><small><strong>tu ecommerce favorito</strong></small></p>
+            <small style="font-size: 10px; color: grey;">Esta web es una herramienta generada para fines estrictamente
+              educativos.<br>
+              No realiza compras o ventas reales a terceros. Tampoco administra datos personales o de clientes.<br>
+              Todo lo expresado en este dominio no tiene validez comercial.</small>
+          </div>
+    </section>
+    <!-- Inicio del listado generado por JSON-->
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="card-columns" id="cat-list-container">
+          <!-- div que modifica el innerHTML de products.js-->
+        </div>
+      </div>
     </div>
-</section>
+    <!-- fin del listado generado por JSON -->
+    </div>
 
-      
-            <!-- Inicio del listado generado por JSON-->
-            <div class="container">
-                <hr>
-                <div class="row">
-                            <div class="card-columns"  id="cat-list-container"> <!-- div que modifica el innerHTML de products.js-->
-                            </div>
-                        </div>
-                    </div>
-                <!-- fin del listado generado por JSON -->
-                    </div>
-                        
-                <div class="row">
-                    <a type="button" class="btn btn-light btn-lg btn-block" href="categories.html">Ver todas</a>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer class="text-muted">
-        <div id="spinner-wrapper">
-            <div class="lds-ring">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Volver arriba</a>
-            </p>
-            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-        </div>
-    </footer>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/categories.js"></script>
-</div>
-    
+    <div class="row">
+      <a type="button" class="btn btn-light btn-lg btn-block" href="categories.html">Ver todas</a>
+    </div>
+    </div>
+    </div>
+  </main>
+  <footer class="text-muted">
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/categories.js"></script>
+  <script src="js/nav-bar.js"></script>
+  <script src="js/google-login.js"></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+  </div>
+
 </body>
 
 </html>

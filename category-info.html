@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  <meta name="google-signin-client_id" content="589734920366-p1flragsa4bj1qpnonkqtcucf469o2af.apps.googleusercontent.com"> 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
@@ -16,30 +16,7 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="page.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>            <div class="btn-group">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="user" class="user-name">
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="cart.html">Carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#"><button id="logout-btn" onclick="localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';">Log Out</button></a>
-          <script>
-            var local = localStorage.getItem("usuario");
-            document.getElementById('user').innerHTML=local;
-        </script>
-        </div>
-      </div>
-     
-    </div>
-  </nav>
+  <div id="nav-bar"></div>
   <main role="main">
     <div class="container mt-5">
       <div class="text-center p-4">
@@ -96,6 +73,10 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/category-info.js"></script>
+  <script src="js/nav-bar.js"></script>
+  <script src="js/google-login.js"></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </body>
 
 </html>

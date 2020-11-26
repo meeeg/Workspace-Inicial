@@ -4,7 +4,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+  <meta name="google-signin-client_id" content="589734920366-p1flragsa4bj1qpnonkqtcucf469o2af.apps.googleusercontent.com"> 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
@@ -13,15 +13,16 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
   <style>
-.is-invalid{
-            border-color: red;
-            background-color:salmon;
-        }
-        .is-valid{
-            border-color: green;
-            background-color:rgb(161, 245, 150);
-        }
-           
+    .is-invalid {
+      border-color: red;
+      background-color: salmon;
+    }
+
+    .is-valid {
+      border-color: green;
+      background-color: rgb(161, 245, 150);
+    }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -40,38 +41,14 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
-  
 
 
-<script src="https://use.fontawesome.com/c560c025cf.js"></script>
+
+  <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="page.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <div class="btn-group">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="user" class="user-name">
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="cart.html">Carrito<span class="badge">1</span></a>
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#"><button id="logout-btn" onclick="localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';">Log Out</button></a>
-        </div>
-      </div>
-     
-            <script>
-                var local = localStorage.getItem("usuario");
-                document.getElementById('user').innerHTML=local;
-            </script>
-    </div>
-  </nav>
+  <div id="nav-bar"></div>
 
 
   <br>
@@ -79,123 +56,127 @@
     <h2>Mi carrito</h2>
   </div>
 
-<div class="container mb-4">
+  <div class="container mb-4">
     <div class="row">
-        <div class="col-12">
-            <div class="table-responsive slide-in-blurred-bottom">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col"> </th>
-                            <th scope="col">Producto</th>
-                            <th scope="col">Costo unitario</th>
-                            <th scope="col" class="text-center">Cantidad</th>
-                            <th scope="col" class="text-right">Sub-total</th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <!-- aquí los productos generados por el json-->
-                    <tbody id="cart-list-container">
-                    </tbody>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td id="ship-row"> Envío &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span id="showShipping"></span>  UYU</strong></td>
-                  </tr>
-                  <tr class="RE">
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td id="ct-row">Costo total  &nbsp;&nbsp;&nbsp;<strong><span id="totalCost"></span> UYU</strong></td>
-                  </tr>
+      <div class="col-12">
+        <div class="table-responsive flip-in-hor-bottom">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">Producto</th>
+                <th scope="col">Costo unitario</th>
+                <th scope="col" class="text-center">Cantidad</th>
+                <th scope="col" class="text-right">Sub-total</th>
+                <th> </th>
+              </tr>
+            </thead>
+            <!-- aquí los productos generados por el json-->
+            <tbody id="cart-list-container">
+            </tbody>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="ship-row"> Envío &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span
+                  id="showShipping"></span> UYU</strong></td>
+            </tr>
+            <tr class="RE">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td id="ct-row">Costo total &nbsp;&nbsp;&nbsp;<strong><span id="totalCost"></span> UYU</strong></td>
+            </tr>
 
           </table>
-      </div>
-  </div>         
-
-  <div class="container">
-    <div class="row justify-content-center align-items-center ">
-      <p>Selecciona el tipo de envío que deseas</p>
-  <select id="shipping"  class="form-control" onchange="subproductCosttoHTML()">
-    <option value="0.25">envío de cartón (100 días)</option>
-    <option value="0.50" selected="selected">envío de madera(50 días)</option>
-    <option value="0.75">envío de oro (5 a 7 días)</option>
-  </select>
-  </div>
-  </div>
-</div>
-
-  <br/>
-  <br/>
-        <div class="col mb-2">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-sm-12 col-md-6 text-right">
-                    <button class=" btn btn-lg btn-block btn-success text-uppercase" data-toggle="modal" data-target="#exampleModalCenter">Finaliza tu compra</button>
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="exampleModalLongTitle">Finaliza tu compra</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-       <div class="container">
-         <div class=row justify-content-center align-items-center">
-       <div class="modal-body">
-<!--form-->
-
-<h2 class="container mb-3">Pago con tarjeta de crédito &nbsp;</h2>
-<div class="container">
-    <div class="needs-validation">
-
-            <div class="col-md-12 mb-3">
-                <label for="name">Nombre</label> <input type="text" class="form-control" id="name" placeholder="Nombre Completo" > 
-                <div class="invalid-feedback"> Ingresa un nombre</div>
-            </div>
-            <div class="col-md-12 mb-3">
-                <label for="creditCard">Tarjeta de Credito</label>
-                <input type="text" class="form-control" id="creditCard" placeholder="xxxx-xxxx-xxxx-xxxx"> 
-                <div class="invalid-feedback"> Usa una tarjeta de crédito válida </div>
-            </div>
-            <div class="col-md-12 mb-3">
-              <label for="cvc">CVC</label>
-              <input type="text" class="form-control" id="cvc" placeholder="CVC"> 
-              <div class="invalid-feedback"> El CVC no es correcto, ingresa el cvc de tu tarjeta </div>
-          </div>
-
-    </div>
-    <br>
-
-</div>
-          <button class="btn btn-success" id="validation" type="submit">Realiza tu pago</button>
-      </div>
-        </form>
-       </div>
-     </div>
-   </div>
-  </div>
-  </div>
-                </div>
-            </div>
         </div>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-center align-items-center ">
+          <p>Selecciona el tipo de envío que deseas</p>
+          <select id="shipping" class="form-control" onchange="subproductCosttoHTML(); getData();">
+            <option value="0.25">envío de cartón (100 días)</option>
+            <option value="0.50">envío de madera(50 días)</option>
+            <option value="0.75">envío de oro (5 a 7 días)</option>
+          </select>
+        </div>
+      </div>
     </div>
-</div>
-</div>
 
-<div class="alert fade" role="alert" id="alertResult">
-  <span id="resultSpan"></span>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <br />
+    <br />
+    <div class="col mb-2">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-6 text-right">
+          <button class=" btn btn-lg btn-block btn-success text-uppercase" data-toggle="modal"
+            data-target="#exampleModalCenter">Finaliza tu compra</button>
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Finaliza tu compra</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="container">
+                  <div class=row justify-content-center align-items-center">
+                    <div class="modal-body">
+                      <!--form-->
+
+                      <h2 class="container mb-3">Pago con tarjeta de crédito &nbsp;</h2>
+                      <div class="container">
+                        <div class="needs-validation">
+
+                          <div class="col-md-12 mb-3">
+                            <label for="name">Nombre</label> <input type="text" class="form-control" id="name"
+                              placeholder="Nombre Completo">
+                            <div class="invalid-feedback"> Ingresa un nombre</div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <label for="creditCard">Tarjeta de Credito</label>
+                            <input type="text" class="form-control" id="creditCard" placeholder="xxxx-xxxx-xxxx-xxxx">
+                            <div class="invalid-feedback"> Usa una tarjeta de crédito válida </div>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <label for="cvc">CVC</label>
+                            <input type="text" class="form-control" id="cvc" placeholder="CVC">
+                            <div class="invalid-feedback"> El CVC no es correcto, ingresa el cvc de tu tarjeta </div>
+                          </div>
+
+                        </div>
+                        <br>
+
+                      </div>
+                      <button class="btn btn-success" id="validation" onclick="getData();" type="submit">Realiza tu pago</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="alert fade" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+    </button>
+  </div>
 
 
- <!-- <div class="container p-5">
+  <!-- <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
       <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
@@ -204,7 +185,7 @@
     </div>
   </div> -->
 
-  
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -218,6 +199,11 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/nav-bar.js"></script>
+  <script src="js/objects.js"></script>
+  <script src="js/google-login.js"></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </body>
 
 </html>

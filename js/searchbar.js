@@ -41,4 +41,4 @@ const displayProducts = (products) => {
     productList.innerHTML = htmlString;
 };
 
-loadProducts ();
+loadProducts();
