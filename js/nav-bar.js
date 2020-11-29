@@ -2,10 +2,15 @@ document.getElementById("nav-bar").innerHTML = `
 
 <style>
 #profile-image{
-  width: 2.5em;
-  height: 2.5em;
-    overflow: hidden;
-    border-radius: 50%;
+  width: 50px;
+    height: 50px;
+    -webkit-border-radius: 50px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 50px;
+    -moz-background-clip: padding;
+    border-radius: 50px;
+    background-clip: padding-box;
+    background-position: center center;
       }
 }
 </style>
@@ -46,7 +51,7 @@ document.getElementById("nav-bar").innerHTML = `
 
 
         <div>
-        <a href="my-profile.html"><img id="profile-image" src="img/iconfinder_avatar_1814089.png"></img></a>
+        <a href="my-profile.html"><img id="profile-image"></img></a>
         </div>
 
         <div>
@@ -92,3 +97,7 @@ profileImg.src = localStorage.myImg;
 
 
 $('img:not([src]), img[src=""]')
+
+if (localStorage.myImg == null) {
+  document.getElementById("profile-image").style.display = "none";
+} 

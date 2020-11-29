@@ -153,9 +153,18 @@
                         <br>
 
                       </div>
-                      <button class="btn btn-success" id="validation" onclick="getData();" type="submit">Realiza tu pago</button>
+                      <button class="btn btn-success" id="validation" onclick="getData(); swalpop();" type="submit">Realiza tu pago</button>
+                    <script>
+                      function swalpop(){
+                      if (localStorage.valueCheckedI != undefined && localStorage.valueCheckedII != undefined  && localStorage.valueCheckedIII != undefined) { Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: '¡Compra realizada con éxito!',
+                        showConfirmButton: false,
+                      timer: 1500}); }
+                      }
+                    </script>
                     </div>
-                    </form>
                   </div>
                 </div>
               </div>
@@ -204,6 +213,9 @@
   <script src="js/google-login.js"></script>
   <script src="https://apis.google.com/js/platform.js"></script>
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="sweetalert2.all.min.js"></script>
+
 </body>
 
 </html>

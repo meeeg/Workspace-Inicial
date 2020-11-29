@@ -1,7 +1,11 @@
 //función que obtiene y almacena los datos de los campos y la imagen subida en un objeto
 function register(nombre, direccion, email, telefono) { //función que guarda los datos puestos en usuario y contraseña
     if (nombre.trim() === "" || direccion.trim() === "" || email.trim() === "" || telefono.trim() === "") { //checkea que no haya campos en blanco
-        alert("Debe rellenar los datos"); //sino envía una alerta
+        Swal.fire({
+            icon: 'error',
+            title: 'Debes rellenar tus datos',
+            text: 'rellena tus datos para el correcto funcionamiento de e-mercado',
+          }) //sino envía una alerta
     } else {
         /*let savedUser = {}; */
         /*savedUser.nombre = nombre.trim;
@@ -14,11 +18,18 @@ function register(nombre, direccion, email, telefono) { //función que guarda lo
         localStorage.setItem("email", email.trim());
         localStorage.setItem("telefono", telefono.trim());
         localStorage.setItem("myImg", myImg.src.trim());
-        alert("Datos guardados con éxito");
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Tus datos han sido guardados',
+            showConfirmButton: false,
+            timer: 1500,
+            onClose: () => {location.reload()}
+          })
         /*localStorage.setItem("actualUser", JSON.stringify(savedUser));*/
     }
-    location.reload()
 }
+
 
 
 //funcion que modifica los valores de los input y la imagen para que aparezcan los datos guardados
@@ -39,3 +50,5 @@ if (localStorage.nombre != null) {
     document.getElementById("myImg").innerHTML = "imgSrc";
     myImg.src = imgSrc;
 }
+
+

@@ -110,6 +110,9 @@ document.getElementById('validation').addEventListener("click", function () {
 
     } else {
         nameInput.classList.add('is-valid');
+        //esto me sirve para checkear si los campos estan completos para generar la alerta de compra exitosa
+        //solo se genera si el checkeo es correcto
+        localStorage.setItem("valueCheckedI",  nameInput)
 
     }
 
@@ -117,13 +120,21 @@ document.getElementById('validation').addEventListener("click", function () {
         creditCard.classList.add('is-invalid');
     } else {
         creditCard.classList.add('is-valid');
+                //esto me sirve para checkear si los campos estan completos para generar la alerta de compra exitosa
+        //solo se genera si el checkeo es correcto
+        localStorage.setItem("valueCheckedII",  creditCard)
     }
 
     if (cvcInput.value === "") {
         cvcInput.classList.add('is-invalid');
     } else {
         cvcInput.classList.add('is-valid');
+                //esto me sirve para checkear si los campos estan completos para generar la alerta de compra exitosa
+        //solo se genera si el checkeo es correcto
+        localStorage.setItem("valueCheckedIII",  cvcInput)
     }
+
+    
 });
 
 
@@ -168,3 +179,21 @@ function getData() {
     localStorage.setItem("itemComprado", (cartArray[0].name));
 }
 
+//función que triggerea la alerta de 'compra exitosa'
+document.getElementById('validation').addEventListener("click", function () {
+    //checkeo que los valores anteriormente generados no sean null (es decir, que no se haya generado
+    // el item en localstorage), si los valores se encuentran almacenados, genera la alerta de 'compra exitosa'
+        if (localStorage.valueCheckedI != null && localStorage.valueCheckedII != null  && localStorage.valueCheckedIII != null) { 
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: SUCCESS_MSG, //utilizo la variable de mensaje generada al inicio del js
+          showConfirmButton: false,
+          timer: 0}); 
+        }
+        //remuevo los items al enviar la alerta, para asi poder hacer eficiente el checkeo anterior  y que 
+        //las variables de localstorage se inicien cada vez que se validan los campos
+        localStorage.removeItem('valueCheckedI') 
+        localStorage.removeItem('valueCheckedII')
+        localStorage.removeItem('valueCheckedIII')
+        }); 

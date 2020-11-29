@@ -1,7 +1,7 @@
 //aquí se almacenan todos los datos del usuario en un objeto para su posterior procesamiento
 //creación de una constante objeto para los datos del usuario, inicializada con "placeholders" 
 //que serán modificados a medida que el usuario suba sus datos
-const sessionUser = {
+var sessionUser = {
     "nombre": "placeholder",
     "fotoperfil": "placeholder",
     "direccion": "placeholder",
