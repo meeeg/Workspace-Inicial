@@ -1,14 +1,10 @@
  function onSignIn(googleUser) {
-                    var profile = googleUser.getBasicProfile();//Obtiene perfil de usuario básico.
-                    var perfil=`<h2> Perfil del usuario </h2> `;
-                    perfil+=`<img src=` + profile.getImageUrl() + `>`
-                    `ID:`+ profile.getId() + `Nombre: ` + profile.getName() +
-                    `Email:` + profile.getEmail() + ``
-    
-                    document.getElementById('datos').innerHTML=perfil;  
-                }
-
-
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
 
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
