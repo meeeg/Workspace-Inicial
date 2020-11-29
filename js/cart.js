@@ -190,10 +190,21 @@ document.getElementById('validation').addEventListener("click", function () {
           title: SUCCESS_MSG, //utilizo la variable de mensaje generada al inicio del js
           showConfirmButton: false,
           timer: 0}); 
+          localStorage.removeItem('valueCheckedI') 
+          localStorage.removeItem('valueCheckedII')
+          localStorage.removeItem('valueCheckedIII')
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: ERROR_MSG, //utilizo la variable de mensaje generada al inicio del js
+                showConfirmButton: false,
+                timer: 0}); 
+                localStorage.removeItem('valueCheckedI') 
+                localStorage.removeItem('valueCheckedII')
+                localStorage.removeItem('valueCheckedIII')
         }
         //remuevo los items al enviar la alerta, para asi poder hacer eficiente el checkeo anterior  y que 
         //las variables de localstorage se inicien cada vez que se validan los campos
-        localStorage.removeItem('valueCheckedI') 
-        localStorage.removeItem('valueCheckedII')
-        localStorage.removeItem('valueCheckedIII')
+
         }); 

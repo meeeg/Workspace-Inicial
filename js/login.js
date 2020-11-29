@@ -1,22 +1,13 @@
 function login(user, pass) { //función que guarda los datos puestos en usuario y contraseña
     if (user.trim() === "" || pass.trim() === "") { //checkea que no haya campos en blanco
         alert("Debe rellenar los datos"); //sino envía una alerta
-    } else {
-        if (googleImage != null) {
-            var profile = googleUser.getBasicProfile(); //Obtiene perfil de usuario básico.
-
-            var googleImage = profile.getImageUrl();
-            var googleId = profile.getId();
-            var googleNombre = profile.getName();
-            var googleEmail = profile.getEmail();
-            location.href = "page.html";
         } else {
             localStorage.setItem("usuario", user.trim()); //guarda los datos de en localStorage
             localStorage.setItem("contraseña", pass.trim());
             location.href = "page.html"; //redirecciona a la página principal si todo lo anterior se cumple
         }
     }
-}
+
 
 
 

@@ -272,7 +272,7 @@ a:hover {
 nav {
   z-index: 99999;
   position: fixed;
-  height: 15vh;
+  height: 14vh;
   line-height: 15vh;
   width: 100%;
   font-size: 1.3em;
@@ -297,7 +297,7 @@ nav:hover {
 }
 
 nav img {
-  height: 13vh;
+  height: 14vh;
   width: auto;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -354,7 +354,7 @@ nav a+ul:hover {
 nav ul {
   visibility: hidden;
   position: absolute;
-  top: 15vh;
+  top: 14vh;
   background: white;
   width: 20%;
   margin-left: -3%;
