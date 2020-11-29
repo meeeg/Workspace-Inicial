@@ -128,7 +128,7 @@ if (localStorage.usuario == null && localStorage.gname == null) {
   document.getElementById("user").style.display = "none";
 }
 //si hay un usuario con sesión iniciada, no muestra el link para iniciar sesión
-if (localStorage.usuario != null && localStorage.gname) {
+if (localStorage.usuario != null || localStorage.gname) {
   document.getElementById("log-wo-user").style.display = "none";
 }
 
