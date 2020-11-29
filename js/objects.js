@@ -3,7 +3,6 @@
 //que serán modificados a medida que el usuario suba sus datos
 var sessionUser = {
     "nombre": "placeholder",
-    "fotoperfil": "placeholder",
     "direccion": "placeholder",
     "email": "placeholder",
     "telefono": "placeholder",
