@@ -1,21 +1,13 @@
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile(); //Obtiene perfil de usuario básico.
+ function onSignIn(googleUser) {
+                    var profile = googleUser.getBasicProfile();//Obtiene perfil de usuario básico.
+                    var perfil=`<h2> Perfil del usuario </h2> `;
+                    perfil+=`<img src=` + profile.getImageUrl() + `>`
+                    `ID:`+ profile.getId() + `Nombre: ` + profile.getName() +
+                    `Email:` + profile.getEmail() + ``
+    
+                    document.getElementById('datos').innerHTML=perfil;  
+                }
 
-  var googleImage = profile.getImageUrl();
-  var googleId = profile.getId();
-  var googleNombre = profile.getName();
-  var googleEmail = profile.getEmail();
-  //probar que se procesen los datos
-  localStorage.setItem("gimg", googleImage);
-  localStorage.setItem("gId", googleId);
-  localStorage.setItem("gNombre", googleNombre);
-  localStorage.setItem("gEmail", googleEmail)
-    location.href = "page.html"
-}
-
-function logged(){
-  location.href = "page.html"
-}
 
 
   function signOut() {

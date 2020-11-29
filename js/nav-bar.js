@@ -50,18 +50,28 @@ document.getElementById("nav-bar").innerHTML = `
 /
 
 
-        <div>
+        <div id="div-prof-img">
         <a href="my-profile.html"><img id="profile-image"></img></a>
         </div>
 
         <div>
-        <a><span id="user"></span>
+        <a><span id="user" style=" background-color:#858384; 
+        border: none;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        "></span>
          <ul>
            <li><a href="my-profile.html">Perfil</a></li>
            <li><a href="cart.html">Carrito</a></li>
-<li> <a onclick="signOut(); swalLogOut();">Log Out</a></li>
+           <li> <a onclick="signOut(); swalLogOut();">Log Out</a></li>
          </ul>
          </a>
+       </div>
+
+       <div>
+       <a href="index.html" id="log-wo-user">Inicia sesión</p>
        </div>
 
        
@@ -74,20 +84,21 @@ document.getElementById("nav-bar").innerHTML = `
 
 
     `
-
-    function swalLogOut(){
-    localStorage.clear();
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: "Cierre de sesión exitoso ¡hasta la próxima!", //utilizo la variable de mensaje generada al inicio del js
-      showConfirmButton: false,
-      timer: 0})
-      setTimeout(function () {
-          window.location.href = "index.html";
-       }, 1500);;
-      }
-
+//alerta al cerrar sesión
+function swalLogOut() {
+  localStorage.clear();
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: "Cierre de sesión exitoso ¡hasta la próxima!", 
+    showConfirmButton: false,
+    timer: 0
+  })
+  setTimeout(function () {
+    window.location.href = "index.html";
+  }, 1500);;
+}
+//barra responsiva, icono de tres barras que se genera al reducir el tamaño de pantalla
 $(document).ready(function () {
 
   $('.fa-bars').click(function () {
@@ -99,17 +110,23 @@ $(document).ready(function () {
   });
 });
 
-
+//obtiene el usuario y cambia el campo en la barra de navegación
 var local = localStorage.getItem("usuario");
 document.getElementById('user').innerHTML = local;
 
-
+//obtiene la imagen y la cambia en el campo de la barra de navegación
 var profileImg = document.getElementById('profile-image');
 profileImg.src = localStorage.myImg;
 
-
-$('img:not([src]), img[src=""]')
-
+// si no hay una imagen precargada, la misma no se muestra
 if (localStorage.myImg == null) {
-  document.getElementById("profile-image").style.display = "none";
-} 
+  document.getElementById("div-prof-img").style.display = "none";
+}
+//si no hay un usuario iniciando sesión, el span de usuario no se muestra
+if (localStorage.usuario == null) {
+  document.getElementById("user").style.display = "none";
+}
+//si hay un usuario con sesión iniciada, no muestra el link para iniciar sesión
+if (localStorage.usuario != null) {
+  document.getElementById("log-wo-user").style.display = "none";
+}
