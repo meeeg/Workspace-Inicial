@@ -59,7 +59,7 @@ document.getElementById("nav-bar").innerHTML = `
          <ul>
            <li><a href="my-profile.html">Perfil</a></li>
            <li><a href="cart.html">Carrito</a></li>
-<li> <a onclick="signOut(); localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';">Log Out</a></li>
+<li> <a onclick="signOut(); swalLogOut();">Log Out</a></li>
          </ul>
          </a>
        </div>
@@ -75,6 +75,18 @@ document.getElementById("nav-bar").innerHTML = `
 
     `
 
+    function swalLogOut(){
+    localStorage.clear();
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: "Cierre de sesión exitoso ¡hasta la próxima!", //utilizo la variable de mensaje generada al inicio del js
+      showConfirmButton: false,
+      timer: 0})
+      setTimeout(function () {
+          window.location.href = "index.html";
+       }, 1500);;
+      }
 
 $(document).ready(function () {
 
