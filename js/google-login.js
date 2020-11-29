@@ -1,10 +1,35 @@
+ 
  function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  var gname = profile.getName();
+  var gimg = profile.getImageUrl();
+  var gemail = profile.getEmail();
+
+
+  localStorage.setItem("gname", gname);
+  localStorage.setItem("gimg", gimg);
+  localStorage.setItem("gemail", gemail);
+  console.log(gname)
+  console.log(gimg)
+  console.log(gemail)
+
+  if (gname != null){
+  Swal.fire({
+    position: 'center',
+    imageUrl: 'img/spinner.gif',
+    imageHeight: 50,
+    title: "Iniciando sesion con google", 
+    showConfirmButton: false,
+    timer: 0})
+    setTimeout(function () {
+        window.location.href = "page.html";
+     }, 2500);; //redirecciona a la página principal si todo lo anterior se cumple
+    }
+
 }
+
+
+
 
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
@@ -19,3 +44,4 @@ function onLoad() {
     gapi.auth2.init();
   });
 }
+

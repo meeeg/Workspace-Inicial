@@ -33,7 +33,7 @@ function register(nombre, direccion, email, telefono) { //función que guarda lo
 
 
 //funcion que modifica los valores de los input y la imagen para que aparezcan los datos guardados
-if (localStorage.nombre != null) {
+if (localStorage.nombre != null ) {
     var name = localStorage.getItem("nombre");
     document.getElementById("nombre").innerHTML = name;
     nombre.value = name;
@@ -49,6 +49,24 @@ if (localStorage.nombre != null) {
     var imgSrc = localStorage.getItem("myImg");
     document.getElementById("myImg").innerHTML = "imgSrc";
     myImg.src = imgSrc;
+}
+
+if (localStorage.gname != null){
+    var gname = localStorage.getItem("gname");
+    document.getElementById("nombre").innerHTML = gname;
+    nombre.value = gname;
+    var gemail = localStorage.getItem("gemail");
+    document.getElementById("email").innerHTML = gemail;
+    email.value = gemail;
+    var adress = localStorage.getItem("direccion");
+    document.getElementById("direccion").innerHTML = adress;
+    direccion.value = adress;
+    var phone = localStorage.getItem("telefono");
+    document.getElementById("telefono").innerHTML = phone;
+    telefono.value = phone;
+    var gimg = localStorage.getItem("gimg");
+    document.getElementById("myImg").innerHTML = gimg;
+    myImg.src = gimg;
 }
 
 

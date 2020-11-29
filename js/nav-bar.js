@@ -1,3 +1,4 @@
+
 document.getElementById("nav-bar").innerHTML = `
 
 <style>
@@ -50,7 +51,7 @@ document.getElementById("nav-bar").innerHTML = `
 /
 
 
-        <div id="div-prof-img">
+        <div>
         <a href="my-profile.html"><img id="profile-image"></img></a>
         </div>
 
@@ -65,7 +66,7 @@ document.getElementById("nav-bar").innerHTML = `
          <ul>
            <li><a href="my-profile.html">Perfil</a></li>
            <li><a href="cart.html">Carrito</a></li>
-           <li> <a onclick="signOut(); swalLogOut();">Log Out</a></li>
+           <li> <a onclick="signOut(); swalLogOut();">Log out</a></li>
          </ul>
          </a>
        </div>
@@ -119,14 +120,22 @@ var profileImg = document.getElementById('profile-image');
 profileImg.src = localStorage.myImg;
 
 // si no hay una imagen precargada, la misma no se muestra
-if (localStorage.myImg == null) {
-  document.getElementById("div-prof-img").style.display = "none";
+if (localStorage.myImg == null && localStorage.gimg == null) {
+  document.getElementById("profile-image").style.display = "none";
 }
 //si no hay un usuario iniciando sesión, el span de usuario no se muestra
-if (localStorage.usuario == null) {
+if (localStorage.usuario == null && localStorage.gname == null) {
   document.getElementById("user").style.display = "none";
 }
 //si hay un usuario con sesión iniciada, no muestra el link para iniciar sesión
-if (localStorage.usuario != null) {
+if (localStorage.usuario != null && localStorage.gname) {
   document.getElementById("log-wo-user").style.display = "none";
 }
+
+if (localStorage.gname != null){
+  document.getElementById("user").innerHTML = localStorage.gname
+  profileImg.src = localStorage.gimg
+  document.getElementById("log-wo-user").style.display = "none";
+}
+
+
